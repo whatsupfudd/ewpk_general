@@ -1,0 +1,81 @@
+name:                ew-general
+version:             0.1.0.0
+github:              "whatsupfudd/ew-general"
+license:             BSD3
+author:              "Hugo DesRosiers"
+maintainer:          "hugo.desrosiers@boardingcities.com"
+copyright:           "FUDD @ 2025."
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            ArchiveOpteryx compatible database layer.
+# category:            DB manipulation.
+
+description:         Please see the README on GitHub at <https://github.com/whatsupfudd/aoxsup#readme>
+
+dependencies:
+  - aeson
+  - base >= 4.7 && < 5
+  - bytestring
+  - containers
+  - directory
+  - filepath
+  - text
+  - time
+  - vector
+  - unix
+  - unordered-containers
+  # For Cont(T):
+  - mtl
+  # For JSON pretty printing:
+  - aeson-pretty
+  - uuid
+  - time
+  # For SQL:
+  - postgresql-binary
+  - hasql
+  - hasql-th
+  - hasql-pool
+  - profunctors
+  # For inline JS:
+  - inline-js
+  - inline-js-core
+  - rio
+  # For decoding serialized data:
+  - binary
+
+
+default-extensions:
+- OverloadedStrings
+- DuplicateRecordFields
+- OverloadedRecordDot
+
+ghc-options:
+# - -Wall
+# - -Wunused-matches
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+#- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+tests:
+  ew-general-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - ew-general
+
